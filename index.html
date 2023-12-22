@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+
+    <link rel="stylesheet" href="ucss/quiz1.css" />
+    <link rel="stylesheet" href="ucss/quiz2.css" />
+    <link rel="stylesheet" href="ucss/counter.css" />
+    <link rel="stylesheet" href="ucss/styleUcilnica.css" />
+
+    <title>УЧИЛНИЦА</title>
+  </head>
+  <body>
+    <header class="ucilnica-header-wraper">
+      <div class="ucilnica-text-wraper">
+        <h1 class="class-header">УЧИЛНИЦА</h1>
+
+        <p class="header-text">Изберете училница!</p>
+        <div class="btn-wraper">
+          <button class="cta-btn show-btn" id="sign-in">Најава</button>
+          <button class="cta-btn" id="sign-out">Одјава</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-header2">
+      <h2></h2>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-container" id="modal">
+      <div class="modal">
+        <button class="close-btn" id="close">
+          <i>&times;</i>
+        </button>
+        <div class="modal-header">
+          <h3>НАЈАВЕТЕ СЕ</h3>
+        </div>
+        <div class="modal-content">
+          <p>Да влезете во училница морате да се најавите!</p>
+
+          <form class="modal-form">
+            <div>
+              <label for="name">Ваш број на професор</label>
+              <input
+                type="text"
+                id="broj"
+                placeholder="Внеси број"
+                class="form-input"
+              />
+            </div>
+
+            <div>
+              <label for="password">Лозинка</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Внесете лозинка"
+                class="form-input"
+              />
+            </div>
+
+            <input type="submit" value="Најава" class="submit-btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-ucilnici-wraper">
+      <button class="close-btn close-ucilnici-btn" id="close">
+        <i>&times;</i>
+      </button>
+      <h3 class="select-class">ОДБЕРИ УЧИЛНИЦА:</h3>
+
+      <table class="modal-ucilnici"></table>
+    </div>
+
+    <section class="container-table">
+      <table class="table-students">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <article class="cube-wraper min-cube-wraper">
+      <div class="icon-wraper">
+        <i class="max-count">&#9723;</i>
+        <i class="min-count">&#9601;</i>
+      </div>
+      <div class="cube-container">
+        <h1 class="cube-header">Одбери ученик:</h1>
+        <div id="cube">
+          <div class="front">
+            <span class="dot dot1">1</span>
+            <p class="name-student">Име</p>
+          </div>
+          <div class="back">
+            <span class="dot dot1">2</span>
+            <p class="name-student">Име</p>
+          </div>
+          <div class="right">
+            <span class="dot dot1">3</span>
+            <p class="name-student">Име</p>
+          </div>
+          <div class="left">
+            <span class="dot dot1">4</span>
+            <p class="name-student">Име</p>
+          </div>
+          <div class="top">
+            <span class="dot dot1">5</span>
+            <p class="name-student">Име</p>
+          </div>
+          <div class="bottom">
+            <span class="dot dot1">6</span>
+            <p class="name-student">Име</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="counter-wraper">
+      <div class="counter-input-url">
+        <div class="url-close-btn"><button>&times;</button></div>
+
+        <div class="form-controll">
+          <label for="url">Внеси урл на видео:</label>
+          <input
+            type="text"
+            placeholder="Внеси урл..."
+            class="video-url-input"
+          />
+          <div class="error"></div>
+          <span class="save-url-btn">Зачувај Видео</span>
+        </div>
+      </div>
+      <div class="icon-wraper">
+        <button class="youtube-btn">Додај Видео</button>
+        <i class="max-count">&#9723;</i>
+        <i class="min-count">&#9601;</i>
+      </div>
+      <form class="form" action="#">
+        <p>Селектирај должина на час:</p>
+        <input type="radio" id="c1" name="hourLength" value="0" />
+        <label for="c1">0 - 45 минути</label><br />
+        <input type="radio" id="c2" name="hourLength" value="5" />
+        <label for="c2">0 - 40 минути </label><br />
+        <input type="radio" id="c3" name="hourLength" value="10" />
+        <label for="c3">0 - 35 минути</label><br /><br />
+        <!-- <button type="submit">submit</button> -->
+      </form>
+
+      <h1 class="cas-pauza">cas <span>1</span></h1>
+      <div class="container-clock">
+        <div class="min-cont">
+          <h1 class="min">00</h1>
+        </div>
+
+        <div class="sec-cont">
+          <h1 class="sec">00</h1>
+        </div>
+      </div>
+    </article>
+    <article class="quiz1-container display-min-quiz1">
+      <!-- <article class="quiz1-container"> -->
+      <div class="quiz1-name-input">
+        <div class="name-close-btn"><button>&times;</button></div>
+
+        <div class="form-controll">
+          <label for="url">Внеси име на квиз:</label>
+          <input
+            type="text"
+            placeholder="Внеси име..."
+            class="video-url-input name-quiz1-input"
+          />
+          <div class="error name-error"></div>
+          <span class="save-url-btn save-quiz-name" id="save-quiz-name"
+            >Зачувај</span
+          >
+        </div>
+      </div>
+      <div class="icon-wraper">
+        <i class="max-count">&#9723;</i>
+        <i class="min-count">&#9601;</i>
+      </div>
+      <h1 class="quiz1-h1" id="quiz1-con-h1">ПРАШАЊЕ-ОДГОВОР</h1>
+      <div class="quiz1-btn-wraper">
+        <button id="quiz1-show" class="quiz1-btn quiz1-btn-small">
+          <i>+</i> Додај новo П/О
+        </button>
+        <button id="quiz1-new-quiz" class="quiz1-btn quiz1-btn-small">
+          <i>+</i> Додај нов квиз
+        </button>
+
+        <select name="quiz1-name" id="quiz1-name">
+          <option value="" disabled selected hidden>Одбери квиз</option>
+        </select>
+      </div>
+
+      <div id="quiz1-cards-container" class="quiz1-cards"></div>
+
+      <div class="quiz1-navigation">
+        <button id="quiz1-prev" class="quiz1-nav-button">
+          <i>&#9668;</i>
+        </button>
+
+        <p id="quiz1-current"></p>
+
+        <button id="quiz1-next" class="quiz1-nav-button">
+          <i>&#9658;</i>
+        </button>
+      </div>
+
+      <div id="quiz1-add-container" class="quiz1-add-container">
+        <h1>
+          Додај П/О
+          <button
+            id="quiz1-hide"
+            class="quiz1-btn quiz1-btn-small quiz1-btn-ghost"
+          >
+            <i>&times;</i>
+          </button>
+        </h1>
+
+        <div class="quiz1-form-group">
+          <label for="quiz1-question">ПРАШАЊЕ</label>
+          <textarea
+            id="quiz1-question"
+            placeholder="Внеси прашање..."
+          ></textarea>
+        </div>
+
+        <div class="quiz1-form-group">
+          <label for="quiz1-answer">ОДГОВОР</label>
+          <textarea id="quiz1-answer" placeholder="Внеси одговор..."></textarea>
+        </div>
+
+        <button id="quiz1-add-card" class="quiz1-btn">
+          <i>+</i> Додај П/О
+        </button>
+      </div>
+      <button id="quiz1-clear" class="quiz1-clear quiz1-btn">
+        <i class="fas fa-trash"></i> ИЗБРИШИ
+      </button>
+    </article>
+    <!-- ---------QVIZ2-------------------------- -->
+    <div class="quiz2-container min-quiz2-container">
+      <div class="quiz2-choose-quiz-con" id="quiz2-choose-quiz-con">
+        <p id="close" class="close">&times;</p>
+        <h4>ОДБЕРИ КВИЗ</h4>
+        <select name="quiz2-name" id="quiz2-name">
+          <option value="" disabled selected hidden>Одбери квиз</option>
+        </select>
+      </div>
+      <div class="quiz2-input-name-con">
+        <p id="close" class="close">&times;</p>
+        <h4>Внеси име на квиз:</h4>
+        <input type="text" />
+        <button id="quiz2-input-name-button">Потврди</button>
+      </div>
+      <div class="quiz2-panel">
+        <div class="icon-wraper">
+          <i class="max-count">&#9723;</i>
+          <i class="min-count">&#9601;</i>
+        </div>
+
+        <div class="quiz2-content">
+          <div class="quiz2-text">
+            <h1 class="quiz2-lang">КВИЗ</h1>
+          </div>
+          <div class="quiz2-score">
+            <h6>
+              Прашање:<span class="quiz2-question-count">0</span
+              ><span class="quiz2-all-questions"></span>
+            </h6>
+            <h6>Резултат:<span class="quiz2-score-count">0</span></h6>
+          </div>
+          <div class="quiz2-text">
+            <h2 class="quiz2-question quiz2-error">Прашање</h2>
+          </div>
+          <div class="quiz2-answers">
+            <div class="quiz2-answer-show"></div>
+            <div class="quiz2-answer-show"></div>
+            <div class="quiz2-answer-show"></div>
+            <div class="quiz2-answer-show"></div>
+          </div>
+          <p class="quiz2-correct-count"></p>
+          <div class="quiz2-btn-box first">
+            <button class="quiz2-btn quiz2-start">Одбери Квиз</button>
+            <button class="quiz2-btn quiz2-next">Следно Прашање</button>
+
+            <button class="quiz2-btn quiz2-finish">Заврши Квиз</button>
+          </div>
+          <div class="quiz2-btn-box">
+            <button class="quiz2-btn quiz2-delete">Избриши прашање</button>
+            <button id="quiz2-add-question" class="quiz2-add quiz2-btn">
+              <i>+</i> Додај П/О
+            </button>
+            <button id="quiz2-add-quiz" class="quiz2-add quiz2-btn">
+              <i>+</i> Додај КВИЗ
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="quiz2-questions-wraper">
+        <div id="quiz2-add-container" class="quiz2-add-container">
+          <h3 class="quiz2-h1">
+            Додај ПРАШАЊЕ И ОДГОВОРИ
+            <button id="quiz2-hide" class="quiz2-btn-hide">
+              <i>&times;</i>
+            </button>
+          </h3>
+          <form class="quiz2-form">
+            <div class="quiz2-form-group">
+              <textarea
+                id="quiz2-question"
+                class="quiz2-question"
+                name="questionQuiz2"
+                placeholder="Внеси прашање:"
+              ></textarea>
+            </div>
+
+            <div class="quiz2-form-group">
+              <textarea
+                id="quiz2-answer1"
+                class="quiz2-answer"
+                name="answerQuiz2"
+                placeholder="Внеси одговор под а..."
+              ></textarea>
+            </div>
+            <div class="quiz2-form-group">
+              <textarea
+                id="quiz2-answer2"
+                class="quiz2-answer"
+                name="answerQuiz2"
+                placeholder="Внеси одговор под b..."
+              ></textarea>
+            </div>
+            <div class="quiz2-form-group">
+              <textarea
+                id="quiz2-answer3"
+                class="quiz2-answer"
+                name="answerQuiz2"
+                placeholder="Внеси одговор под c..."
+              ></textarea>
+            </div>
+            <div class="quiz2-form-group">
+              <textarea
+                id="quiz2-answer4"
+                class="quiz2-answer"
+                name="answerQuiz2"
+                placeholder="Внеси одговор под d..."
+              ></textarea>
+            </div>
+            <div class="quiz2-correct-answer">
+              <h3>Означи кој е точен одговор:</h3>
+              <div class="quiz2-radio-btns">
+                <div>
+                  <label for="a">a)</label>
+                  <input type="radio" name="correct-a" id="a" value="a" />
+                </div>
+                <div>
+                  <label for="a">b)</label>
+                  <input type="radio" name="correct-b" id="b" value="b" />
+                </div>
+                <div>
+                  <label for="a">c)</label>
+                  <input type="radio" name="correct-c" id="c" value="c" />
+                </div>
+                <div>
+                  <label for="a">d)</label>
+                  <input type="radio" name="correct-d" id="d" value="d" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="quiz2-control-btns">
+            <button id="quiz2-clear" class="quiz2-clear quiz2-btn">
+              <i class=""></i> Избриши
+            </button>
+            <button id="quiz2-save-question" class="quiz2-add quiz2-btn">
+              <i>+</i> Зачувај П/О
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="ujs/ucilnica.js"></script>
+    <script src="ujs/quiz2.js"></script>
+    <script src="ujs/counter.js"></script>
+    <script src="ujs/quiz1.js"></script> -->
+    <script type="module" src="renderer.js"></script>
+  </body>
+</html>

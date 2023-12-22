@@ -1,0 +1,166 @@
+html {
+  font-size: 62.5%;
+}
+.counter-wraper {
+  width: 70rem;
+  margin: 0 auto;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: white;
+
+  background-image: linear-gradient(to right, #ff9472, #f2709c);
+  position: relative;
+  z-index: 1000;
+  transition: all 0.4s;
+}
+.container-clock {
+  display: flex;
+
+  background-color: transparent;
+}
+.container-clock h1 {
+  font-size: 15rem;
+}
+.min,
+.sec {
+  font-size: 15rem;
+  background-color: #f03876;
+
+  color: white;
+  padding: 2rem;
+  margin-right: 5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0.8rem 1.3rem 0.8rem rgba(6, 52, 15, 0.3);
+  letter-spacing: 1rem;
+}
+.cas-pauza {
+  font-size: 8rem;
+
+  color: white;
+  text-shadow: 0.3rem 0.6rem 0.8rem rgba(6, 52, 15, 0.3);
+}
+
+.form {
+  position: relative;
+  z-index: 100;
+}
+.form input {
+  margin-right: 1rem;
+}
+.form p {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+.form label {
+  color: white;
+}
+.hide {
+  display: none;
+}
+.counter-wraper {
+  position: absolute;
+
+  top: 24.2rem;
+  right: -20rem;
+  transform: scale(0.4);
+  z-index: 1;
+}
+.counter-wraper.max-wraper {
+  top: 3rem;
+  right: 33rem;
+  transform: scale(1);
+  z-index: 1000;
+}
+
+.icon-wraper {
+  position: relative;
+  width: 100%;
+}
+.icon-wraper i {
+  position: absolute;
+  z-index: 200;
+  font-size: 6rem;
+  cursor: pointer;
+  font-style: normal;
+  color: white;
+}
+.icon-wraper .close-count {
+  top: -0.7rem;
+  right: 1rem;
+  font-size: 5rem;
+}
+.icon-wraper .min-count {
+  top: -4.2rem;
+  right: 1rem;
+}
+.icon-wraper .max-count {
+  top: -1.4rem;
+  right: 5.5rem;
+  font-weight: bold;
+}
+.icon-wraper i:hover {
+  color: #f03876;
+}
+.icon-wraper .youtube-btn {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  z-index: 100;
+}
+.counter-input-url {
+  width: 60%;
+  height: 40%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #30336b;
+  color: white;
+  position: absolute;
+  top: 25%;
+  left: 49%;
+  transform: translate(-50%, -55%);
+  z-index: 150;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.show-input-url {
+  visibility: visible;
+  opacity: 1;
+}
+.counter-input-url .form-controll {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.url-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+.counter-input-url input {
+  width: 100%;
+  height: 4rem;
+  border-radius: 5px;
+  padding-left: 2rem;
+}
+.counter-input-url .url-close-btn button {
+  background-color: transparent;
+  font-size: 2.4rem;
+  color: white;
+}
+.save-url-btn {
+  display: inline-block;
+  color: white;
+  background-color: #f03876;
+  padding: 0.7rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
