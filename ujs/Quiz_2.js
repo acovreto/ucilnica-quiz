@@ -225,6 +225,7 @@ class Quiz_2 {
     if (this.curentQuestion < 0) {
       this.curentQuestion = this.quiz2QuestionsAnswers.length - 1;
     }
+
     this.quiz2CorrectCountEl.textContent = `Прашањето има:${
       this.quiz2QuestionsAnswers[this.curentQuestion].correctArr.length
     } точни одговори`;
@@ -384,7 +385,10 @@ class Quiz_2 {
       await window.doSomething.writeFile(filePathAndData1);
     });
     this.quiz2NextBtn.addEventListener("click", () => {
-      if (this.correctArr || this.quiz2QuestionsAnswers.length == 0) return;
+      console.log(this.correctArr);
+      console.log(this.quiz2QuestionsAnswers.length);
+
+      if (!this.correctArr || this.quiz2QuestionsAnswers.length == 0) return;
       this.answers.forEach((answer) => {
         answer.addEventListener("click", this.check);
         answer.style.backgroundColor = "#44403c";
@@ -397,8 +401,10 @@ class Quiz_2 {
 
       this.correctArr =
         this.quiz2QuestionsAnswers[this.curentQuestion].correctArr;
+      console.log("hello");
       this.renderQuestion();
     });
+
     this.finishEl.addEventListener("click", () => {
       this.quiz2QuestionEl.textContent = `Ученикот одговори точно на ${this.scoreEl.textContent} 
       од ${this.questionCount.textContent} прашања `;
@@ -407,6 +413,27 @@ class Quiz_2 {
       this.questionCount.textContent = 0;
       this.correctAnsweredQuestions = 0;
       this.questionCounter = 0;
+    });
+    this.quiz2Delete.addEventListener("click", async () => {
+      if (!this.quiz2QuestionsAnswers) {
+        return;
+      }
+      console.log(this.quiz2QuestionsAnswers.length);
+      this.quiz2QuestionsAnswers.splice(this.curentQuestion, 1);
+      console.log(this.quiz2QuestionsAnswers);
+      let filePathAndData = {
+        filePath: `quiz_2_${this.profNb}/quiz_${this.quiz2Name}.json`,
+        data: this.quiz2QuestionsAnswers,
+      };
+
+      await window.doSomething.writeFile(filePathAndData);
+      if (this.quiz2QuestionsAnswers.length == 0) {
+        this.renderQuiz2();
+      } else {
+        this.questionCounter--;
+        this.curentQuestion++;
+        this.renderQuestion();
+      }
     });
   }
 }
